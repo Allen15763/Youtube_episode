@@ -5,6 +5,8 @@ from yt_concate.pipeline.steps.read_caption import ReadCaptions
 from yt_concate.pipeline.steps.step import StepException
 from yt_concate.utils import Utils
 from yt_concate.pipeline.steps.postflight import Postflight
+from yt_concate.pipeline.steps.initialize_yt import InitializeYT
+from yt_concate.pipeline.steps.search import Search
 
 from yt_concate.pipeline.pipeline import Pipeline
 CHANNEL_ID = 'UCKSVUHI9rbbkXhvAXK-2uxA' # car
@@ -13,13 +15,16 @@ CHANNEL_ID = 'UCKSVUHI9rbbkXhvAXK-2uxA' # car
 
 def main():
     inputs = {
-        'channel_id': CHANNEL_ID
+        'channel_id': CHANNEL_ID,
+        'search_word': 'incredible',
     }
     steps = [
         Preflight(),
         GetVideoList(),
+        InitializeYT(),
         DownloadCaptions(),
         ReadCaptions(),
+        Search(),
         Postflight(),
     ]
     utils = Utils()
