@@ -1,9 +1,9 @@
 
 class Found:
     def __init__(self, yt, caption, time):
-        self.yt = yt
+        self.yt = yt            # 就是yt.py內class YT instance
         self.caption = caption
-        self.time = time
+        self.time = time        # 時間序列；e.g. 00:11:26,630 --> 00:11:43,430
 
     #dunder str
     def __str__(self):
